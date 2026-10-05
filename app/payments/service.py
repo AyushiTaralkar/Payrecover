@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+from app.payments.razorpay import RazorpayTestProvider
+
 
 @dataclass
 class PaymentResult:
@@ -10,7 +12,7 @@ class PaymentResult:
 
 class PaymentService:
     def __init__(self):
-        pass
+        self.provider = RazorpayTestProvider()
 
     def retry_payment(
         self,
@@ -18,4 +20,11 @@ class PaymentService:
         amount: int,
         idempotency_key: str,
     ) -> PaymentResult:
-        raise NotImplementedError
+
+        result = self.provider.retry_payment(
+            payment_id=payment_id,
+            amount=amount,
+            idempotency_key=idempotency_key,
+        )
+
+        return result
