@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-
+from app.voice.websocket import router as voice_router
 from app.database.db import Base, engine
 from app.database import models
 
@@ -13,6 +13,7 @@ app = FastAPI(
     version="0.1.0",
 )
 
+app.include_router(voice_router)
 
 @app.get("/")
 def health_check():

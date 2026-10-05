@@ -19,3 +19,11 @@ class RazorpayTestProvider:
         self.client = razorpay.Client(
             auth=(key_id, key_secret)
         )
+
+    def retry_payment(
+        self,
+        payment_id: str,
+        amount: int,
+        idempotency_key: str,
+    ):
+        return self.client.payment.fetch(payment_id)
