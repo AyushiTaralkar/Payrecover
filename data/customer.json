@@ -1,0 +1,62 @@
+[
+  {
+    "customer_id": "C001",
+    "name": "Priya Sharma",
+    "phone": "+910000000001",
+    "language": "en"
+  },
+  {
+    "customer_id": "C002",
+    "name": "Rahul Mehta",
+    "phone": "+910000000002",
+    "language": "en"
+  },
+  {
+    "customer_id": "C003",
+    "name": "Ananya Rao",
+    "phone": "+910000000003",
+    "language": "en"
+  },
+  {
+    "customer_id": "C004",
+    "name": "Arjun Patel",
+    "phone": "+910000000004",
+    "language": "en"
+  },
+  {
+    "customer_id": "C005",
+    "name": "Neha Singh",
+    "phone": "+910000000005",
+    "language": "en"
+  },
+  {
+    "customer_id": "C006",
+    "name": "Rohan Shah",
+    "phone": "+910000000006",
+    "language": "en"
+  },
+  {
+    "customer_id": "C007",
+    "name": "Kavya Nair",
+    "phone": "+910000000007",
+    "language": "en"
+  },
+  {
+    "customer_id": "C008",
+    "name": "Aditya Joshi",
+    "phone": "+910000000008",
+    "language": "en"
+  },
+  {
+    "customer_id": "C009",
+    "name": "Simran Kaur",
+    "phone": "+910000000009",
+    "language": "en"
+  },
+  {
+    "customer_id": "C010",
+    "name": "Vikram Rao",
+    "phone": "+910000000010",
+    "language": "en"
+  }
+]
