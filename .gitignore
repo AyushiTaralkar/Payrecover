@@ -59,7 +59,6 @@ service-account*.json
 
 # Local data
 data/*.csv
-data/*.json
 
 # Node (if used)
 node_modules/
