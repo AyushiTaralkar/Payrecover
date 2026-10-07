@@ -31,7 +31,6 @@ def health_check():
 
 
 from fastapi.responses import Response
-
 @app.post("/twiml")
 @app.get("/twiml")
 def twiml():
@@ -39,18 +38,19 @@ def twiml():
 <Response>
     <Gather
         input="speech"
-        action="https://hamstring-acquire-acrobat.ngrok-free.dev/process-speech"
+        action="https://YOUR-NGROK-URL/process-speech"
         method="POST"
         speechTimeout="auto"
         language="en-IN"
     >
         <Say language="en-IN">
-            Hello! This is PayRecover. Your autopay payment failed.
-            Please say yes if you want to retry the payment.
+            Hello. This is PayRecover.
+            Your scheduled autopay payment has failed.
+            Would you like me to retry the payment?
         </Say>
     </Gather>
 
-    <Say>
+    <Say language="en-IN">
         I didn't hear a response. Goodbye.
     </Say>
 </Response>
@@ -58,39 +58,5 @@ def twiml():
 
     return Response(
         content=twiml_response,
-        media_type="application/xml",
-    )
-@app.post("/process-speech")
-async def process_speech(request: Request):
-    form = await request.form()
-    speech = form.get("SpeechResult", "").lower()
-
-    if "yes" in speech or "retry" in speech:
-        response = """<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-    <Say>
-        Okay. I have your confirmation. The payment retry will now be processed.
-    </Say>
-</Response>
-"""
-    elif "no" in speech:
-        response = """<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-    <Say>
-        No problem. I will not retry the payment.
-    </Say>
-</Response>
-"""
-    else:
-        response = """<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-    <Say>
-        Sorry, I didn't understand your response.
-    </Say>
-</Response>
-"""
-
-    return Response(
-        content=response,
         media_type="application/xml",
     )
